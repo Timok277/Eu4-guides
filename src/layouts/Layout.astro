@@ -1,0 +1,120 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Гайды по Europa Universalis IV" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | EU4 Гайды</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/">Главная</a>
+				<a href="/guides/general">Общие гайды</a>
+				<a href="/guides/countries">Гайды по странам</a>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<p>&copy; {new Date().getFullYear()} EU4 Гайды. Все права защищены (или нет).</p>
+		</footer>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		color: #fff;
+	}
+	body {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		margin: 0;
+	}
+	header {
+		background: #1e2027;
+		padding: 1rem;
+		border-bottom: 1px solid #333;
+	}
+	nav {
+		display: flex;
+		gap: 1rem;
+		max-width: 960px;
+		margin: 0 auto;
+	}
+	nav a {
+		color: #fff;
+		text-decoration: none;
+		font-size: 1.1rem;
+	}
+	nav a:hover {
+		color: rgb(var(--accent-light));
+	}
+	main {
+		flex-grow: 1;
+		padding: 1.5rem;
+		max-width: 960px;
+		width: 100%;
+		margin: 0 auto;
+		box-sizing: border-box;
+	}
+	footer {
+		text-align: center;
+		padding: 1rem;
+		background: #1e2027;
+		border-top: 1px solid #333;
+		font-size: 0.9rem;
+		color: #aaa;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	h1, h2, h3 {
+		color: rgb(var(--accent-light));
+	}
+	p {
+		line-height: 1.6;
+	}
+	ul {
+		list-style-type: disc;
+		padding-left: 20px;
+	}
+	a {
+		color: rgb(var(--accent));
+	}
+	a:hover {
+		color: rgb(var(--accent-light));
+	}
+</style>

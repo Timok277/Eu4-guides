@@ -1,0 +1,16 @@
+{
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "npx --yes astro dev",
+    "start": "npx --yes astro dev",
+    "build": "npx --yes astro build",
+    "preview": "npx --yes astro preview",
+    "astro": "npx --yes astro"
+  },
+  "dependencies": {
+    "astro": "^4.15.11"
+  }
+}

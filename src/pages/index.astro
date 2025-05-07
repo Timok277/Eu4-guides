@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Главная">
+	<section class="hero">
+		<h1>Добро пожаловать на сайт гайдов по EU4!</h1>
+		<p>Здесь вы найдете подробные руководства по различным аспектам игры Europa Universalis IV, а также стратегии для основных стран.</p>
+	</section>
+
+	<section class="guide-categories">
+		<h2>Категории гайдов</h2>
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="/guides/general"
+				title="Общие гайды"
+				body="Основы игры, механики, экономика, дипломатия, война и многое другое."
+			/>
+			<Card
+				href="/guides/countries"
+				title="Гайды по странам"
+				body="Подробные стратегии и советы для игры за популярные и интересные нации."
+			/>
+		</ul>
+	</section>
+</Layout>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: 2rem 0;
+		margin-bottom: 2rem;
+	}
+	.hero h1 {
+		font-size: 2.8rem;
+		margin-bottom: 0.5rem;
+	}
+	.hero p {
+		font-size: 1.2rem;
+		color: #ccc;
+	}
+	.guide-categories h2 {
+		font-size: 2rem;
+		text-align: center;
+		margin-bottom: 1.5rem;
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5rem;
+		padding: 0;
+	}
+</style>

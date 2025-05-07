@@ -1,0 +1,40 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Card from '../../../components/Card.astro';
+// В будущем здесь можно будет динамически загружать список гайдов
+const countryGuides = [
+	{ href: "/guides/countries/ottomans", title: "Османы", body: "Завоевание мира за могущественную Османскую империю." },
+	{ href: "/guides/countries/france", title: "Франция", body: "Как доминировать в Европе, играя за Францию." },
+	{ href: "/guides/countries/castile", title: "Кастилия (Испания)", body: "Путь к созданию Испанской колониальной империи." },
+	{ href: "/guides/countries/muscovy", title: "Московия (Россия)", body: "Объединение русских земель и создание Российской Империи." },
+	{ href: "/guides/countries/england", title: "Англия (Великобритания)", body: "Морское владычество и создание Британской Империи." },
+];
+---
+
+<Layout title="Гайды по странам">
+	<h1>Гайды по странам в EU4</h1>
+	<p>Подробные стратегии и советы для игры за различные нации.</p>
+	
+	<ul role="list" class="link-card-grid">
+		{countryGuides.map(guide => (
+			<Card href={guide.href} title={guide.title} body={guide.body} />
+		))}
+	</ul>
+</Layout>
+
+<style>
+	h1 {
+		margin-bottom: 0.5rem;
+	}
+	p {
+		margin-bottom: 2rem;
+		font-size: 1.1rem;
+		color: #ccc;
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5rem;
+		padding: 0;
+	}
+</style>

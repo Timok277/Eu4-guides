@@ -1,0 +1,40 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Card from '../../../components/Card.astro';
+// В будущем здесь можно будет динамически загружать список гайдов
+const generalGuides = [
+	{ href: "/guides/general/economy", title: "Экономика", body: "Как построить сильную экономику и обеспечить процветание вашей нации." },
+	{ href: "/guides/general/diplomacy", title: "Дипломатия", body: "Искусство переговоров, союзов, вассалов и улучшения отношений." },
+	{ href: "/guides/general/warfare", title: "Военное дело", body: "Основы ведения войн, состав армий, тактика и осады." },
+	{ href: "/guides/general/trade", title: "Торговля", body: "Как максимизировать доход от торговли и контролировать торговые узлы." },
+	{ href: "/guides/general/colonization", title: "Колонизация", body: "Расширение ваших владений за океаном и создание колониальных наций." },
+];
+---
+
+<Layout title="Общие гайды">
+	<h1>Общие гайды по EU4</h1>
+	<p>Здесь собраны руководства по ключевым механикам игры Europa Universalis IV.</p>
+	
+	<ul role="list" class="link-card-grid">
+		{generalGuides.map(guide => (
+			<Card href={guide.href} title={guide.title} body={guide.body} />
+		))}
+	</ul>
+</Layout>
+
+<style>
+	h1 {
+		margin-bottom: 0.5rem;
+	}
+	p {
+		margin-bottom: 2rem;
+		font-size: 1.1rem;
+		color: #ccc;
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5rem;
+		padding: 0;
+	}
+</style>
